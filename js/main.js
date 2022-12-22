@@ -13,28 +13,31 @@ elBtn.addEventListener("click", () => {
 });
 
 recognition.onresult = (event) => {
-  if (event.results[0][0].transcript === "qizil") {
+  let result = event.results[0][0].transcript;
+  console.log(result);
+  if (result === "qizil") {
     document.body.style.background = "red";
     elText.textContent = "Qizil";
-  } else if (event.results[0][0].transcript === "sariq") {
+  } else if (result === "sariq") {
     document.body.style.background = "yellow";
     elText.textContent = "Sariq";
-  } else if (event.results[0][0].transcript === "yashil") {
+  } else if (result === "yashil") {
     document.body.style.background = "green";
     elText.textContent = "Yashil";
-  } else if (event.results[0][0].transcript === "futbol") {
+  } else if (result === "futbol") {
     audio.src = "./mp3/mbappe.mp3";
     audio.play();
     elText.textContent = "Futbol";
-  } else if (event.results[0][0].transcript === "musiqa") {
+  } else if (result === "musiqa") {
     audio.src = "./mp3/musiqa.mp3";
     audio.play();
     elText.textContent = "Musiqa";
-  } else if (event.results[0][0].transcript === "tugadi") {
+  } else if (result === "tugadi") {
     audio.src = "./mp3/tugadi.ogg";
     audio.play();
     elText.textContent = "Tugadi";
   } else {
     document.body.style.background = "white";
+    elText.textContent = "Boshidan";
   }
 };
